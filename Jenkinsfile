@@ -1,40 +1,36 @@
-
 pipeline{
-			agent {
-				label "Slave-1"
-			}
-			
-			stages{
-					stage("Stage-1"){
-							steps{
-									echo "This is stage-1"							
-							}	
-						
-					}
-					stage("Stage-2"){
-						steps{
-									echo "This is stage-2"
-						
-						}			
+		  agent none
+		  
+		  stages{
+		  
+					stage("Parallel-Execution"){
+													
+							parallel{
+								      stage("Slave-1"){
+											agent "Slave-1"
+											steps{
+													sh "mkdir slave-1"
+													echo "The folder has been created"
+											}
+									  
+									  }
+									  stage("Slave-2"){
+											agent "Slave-2"
+											steps{
+													sh "mkdir slave-2"
+													echo "The folder has been created"
+											}
+									  
+									  }
+									
+							
+							
+							}
 					
 					}
-					
-					stage("Stage-3"){
-						steps{
-									sh "mkdir newFolder1"
-									echo "newFolder has been created!"
-						
-						}			
-					
-					}
-			
-			
-			
-			}
-			
-			
-			
-
-
+		  
+		  
+		  
+		  }
 
 }
