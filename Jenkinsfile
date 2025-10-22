@@ -1,6 +1,8 @@
 
 pipeline{
-			agent "qa"
+			agent {
+				label "qa"
+			}
 			
 			stages{
 					stage("Stage-1"){
