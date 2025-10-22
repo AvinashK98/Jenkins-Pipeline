@@ -1,7 +1,7 @@
 
 pipeline{
 			agent {
-				label "Slave-1, Slave-2"
+				label "Slave-1"
 			}
 			
 			stages{
@@ -21,7 +21,7 @@ pipeline{
 					
 					stage("Stage-3"){
 						steps{
-									sh "rm -rf newFolder"
+									sh "mkdir newFolder1"
 									echo "newFolder has been created!"
 						
 						}			
