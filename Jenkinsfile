@@ -25,7 +25,7 @@ pipeline{
 					
 					stage("Stage-3"){
 						steps{
-									sh "mkdir newFolder"
+									sh "rm -rf newFolder"
 									echo "newFolder has been created!"
 						
 						}			
